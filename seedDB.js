@@ -1,0 +1,56 @@
+const mongoose = require('mongoose');
+const Blog = require('./models/blog')
+
+const arr = [{
+        title: 'How to save a mortgage deposit',
+        author: 'Miss Thrifty',
+       
+        desc: 'Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable. '
+    },
+    {
+       title: 'Sell Books and Tech for Easy Cash',
+       author: 'Skint Dad',
+        
+        desc: ' The motive is to help young / new dads save money and be more frugal in their day to day living.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.'
+    },
+    {
+        title: 'Love that Max',
+        author: 'Ellen Seidman',
+        
+        desc: "This blog in created in 2008, in honor of her son,Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable. Max, who has cerebral palsy. There is space on this blog for other parents, with special needs kids, to share their experiences too."
+
+        
+    },
+    {
+        title: 'The Dad Dude',
+        author: 'Terran Nirvana Williams',
+        
+        desc: "He’s intent on giving 110% to his job as parent and husband (when he’s not surfing Cape Town, Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.South Africa’s cooking waves.) Father of 5 boys, he’s got his work cut out for him!"
+    },
+    {
+        title: 'Tech Savvy Mama',
+        author: 'Leticia Barr',
+        
+        desc: "This is the perfect blog for “parenting in the digital age”.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable. I love the fact that this blog focuses on STEM (science, technology, electronics, and math)."
+       },
+    {
+        title: 'The Book Smugglers',
+        author: 'Ana and Thea ',
+        
+        desc: "A great book nook, if I ever did see one! If you like discovering new things like Steampunk and other counter-culture genres, Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable.Miss Thrifty is targeting young mums with her money saving, frugal tips and articles.It’s inspiring to other mums to see someone like them making such a difference in other people’s lives by creating amazingly useful content that is 100% actionable. the Book Smugglers is the place to go. And they invite interactive dialogue from bloggers, readers and writers alike."
+    },
+
+]
+
+function seedDB() {
+
+    Blog.insertMany(arr)
+        .then(() => {
+            console.log("Data Seeded");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+}
+module.exports = seedDB;
