@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Blog=require('../../models/blog');
+const {IsLoggedIn}=require('../../middleware');
 
 router.get("/",(req,res)=>{
     res.render('landingPage');
@@ -8,7 +9,7 @@ router.get("/",(req,res)=>{
 
 //get a blog
 
-router.get("/blogs",async(req,res)=>{
+router.get("/blogs",IsLoggedIn,async(req,res)=>{
     const blogs=await Blog.find({});
     res.render('blogs/index',{
         blogs:blogs
@@ -17,7 +18,7 @@ router.get("/blogs",async(req,res)=>{
 
 //new blog
 
-router.get('/blogs/new', (req, res) => {
+router.get('/blogs/new',IsLoggedIn, (req, res) => {
     res.render('blogs/new');
 })
 router.post("/blogs", async (req, res) => {
@@ -27,7 +28,7 @@ router.post("/blogs", async (req, res) => {
 
 //showing a particular blog
 
-router.get('/blogs/:id', async (req, res) => {
+router.get('/blogs/:id',IsLoggedIn, async (req, res) => {
     const blog = await Blog.findById(req.params.id);
     res.render('blogs/show', {
         blog: blog
@@ -37,7 +38,7 @@ router.get('/blogs/:id', async (req, res) => {
 
 //edit that blog
 
-router.get('/blogs/:id/edit', async(req, res) => {
+router.get('/blogs/:id/edit',IsLoggedIn, async(req, res) => {
     
     const blog = await Blog.findById(req.params.id);
 
@@ -54,7 +55,7 @@ router.patch('/blogs/:id',async(req,res)=>{
 
 //delete
 
-router.delete('/blogs/:id',async(req,res)=>{
+router.delete('/blogs/:id',IsLoggedIn,async(req,res)=>{
     await Blog.findByIdAndDelete(req.params.id);
 
     res.redirect('/blogs');
